@@ -25,15 +25,48 @@ header{
     border-color: #9ba6a5;
 }
 #walletAddress{
-    margin-top: 0;
-    margin-left: 400px;
-    margin-right: 400px;
-    padding: 10px;
+    margin-top: 35px;
+    margin-left: 0px;
+    margin-right: 608px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 150px;
+    padding-right: 100px;
+    width: 160px;
+    height: 20px;
     border-radius: 10px;
     border-color: #e7eaf6;
     color: #9ba6a5;
     background-color: white;
+    float:right
 }
-#align{
-    padding-top: 35px;
+#exchange{
+    margin-right: 80px;
+    margin-left: 80px;
+    margin-top: 35px;
+    padding: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    border-radius: 10px;
+    background-color: white;
+    border-color: #e7eaf6;
+    border-style: solid;
+    color: #9ba6a5;
+}
+aside{
+    margin-top: 1px;
+    margin-left: 2px;
+    border-radius: 2px;
+    width: 350px;
+    height: 700px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #ececec;
+}
+#balanceHolder{
+    height: 60px;
+    background-color: #e7eaf6;
+}
+#balance{
+    margin-top: 0;
 }
