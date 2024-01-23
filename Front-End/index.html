@@ -9,12 +9,40 @@
 <body>
     <header>
     <button id="connectWallet">Connect Wallet</button>
-    <a><button id="exchange">Exchange token</button></a>
+    <button id="exchange">Exchange token</button>
     <p id="walletAddress">User address...</p>
     </header>
     <aside>
         <section id="balanceHolder"> <p id="balance">5000</p></section>
     </aside>
-    <nav></nav>
+    <nav id="addTaskNav"> <button id="addTask">Add Task</button></nav>
+    <div class="modal", id="taskModal">
+        <div class="modal_box">
+             <h2 id="modalH2">Add Task</h2>
+             <input type="text" name="award" id="award" placeholder="Set your own reward"> <br>
+             <input type="text" name="task" id="task" placeholder="Set task"> <br>
+             <button type="submit" id="addTaskBtn">Add task</button>
+        </div>
+    </div>
+    <div class="exModal", id="exModal">
+        <div class="exchange_box">
+            <h2>Exchange Tokens</h2>
+            <input type="text" name="swap" id="swap" placeholder="swap">
+            <input type="text" name="for" id="for" placeholder="for">
+            <button type="submit" id="acceptExg">Submit</button>
+            <div class="downMenu">
+                <ul class="listTokens">
+                   <li>Token
+                    <span class="menu-arrow arrow"></span>
+                    <ul class="submenu">
+                        <li>TBNB</li>
+                        <li>ANTI</li>
+                    </ul>
+                   </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </body>
+<script defer src="script.js"></script>
 </html>
