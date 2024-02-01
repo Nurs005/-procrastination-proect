@@ -33,4 +33,4 @@ document.querySelector("#exModal .exchange_box").addEventListener("click", event
 document.getElementById("exModal").addEventListener('click' , event => {
     if (event._isClickWithInModal) return;
     event.currentTarget.classList.remove("open");
-})
+});
