@@ -7,7 +7,7 @@
 </h4>
 
 <div align="center">
-  <img alt="Boards" width="60%" src="Readme/todoScrin.png"/>
+  <img alt="Boards" width="60%" src="todoScrin.png"/>
 </div>
 
 
