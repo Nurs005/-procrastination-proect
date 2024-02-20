@@ -1,13 +1,19 @@
-# Sample Hardhat Project
+<h1 align="center">
+  Anti-Procrastination
+</h1>
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+<h4 align="center">
+  Tasks, habits.
+</h4>
 
-Try running some of the following tasks:
+<div align="center">
+  <img alt="Boards" width="60%" src="todoScrin.png"/>
+</div>
 
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.js
-```
+
+## Description
+
+It's a very basic to-do list, but its versatility lies in the fact that it has a system of punishments and rewards. When you connect your wallet you estimate your task in 100 tokens from this moment went the timer and exactly in 24 hours if you do not press the button that you finished it 30% of the amount that you assigned as a reward will be written off as a reward to the project ;))). This should motivate you to set goals and achieve them and I think it goes well with the "current initiative" technique. 
+
+Share your thoughts on the project.
+
