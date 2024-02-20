@@ -3,48 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>Anti Procrastination</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.6.0/dist/web3.min.js"></script>
 </head>
 <body>
-    <header>
-    <button id="connectWallet">Connect Wallet</button>
-    <button id="exchange">Exchange token</button>
-    <p id="walletAddress">User address...</p>
-    </header>
-    <aside>
-        <section id="balanceHolder"> <p id="balance">5000</p></section>
-    </aside>
-    <nav id="addTaskNav"> <button id="addTask">Add Task</button></nav>
-    <div class="modal", id="taskModal">
-        <div class="modal_box">
-             <h2 id="modalH2">Add Task</h2>
-             <input type="text" name="award" id="award" placeholder="Set your own reward"> <br>
-             <input type="text" name="task" id="task" placeholder="Set task"> <br>
-             <button type="submit" id="addTaskBtn">Add task</button>
-        </div>
-    </div>
-    <div class="exModal", id="exModal">
-        <div class="exchange_box">
-            <h2>Exchange Tokens</h2>
+    <div class="container">
+        <p id="walletAddress">wallet address</p>
+        <button onclick="connectWalletBtn()" id="connectWallet">Connect Wallet</button>
+        <button id="exchange">Exchange token</button>
+        <p id="balance-holder">Balance Holder</p>
+        <button id="withdraw" onclick="witdrawTokens()">Withdraw</button>
+        <div id="overlay" class="overlay">
+            <div class="modal">
+                <span id="close">&times;</span>
+                <h2>Exchange Tokens</h2>
+            <div class="drop-down">
+                <p id="drop-btn">TBNB</p> 
+            </div>
             <input type="text" name="swap" id="swap" placeholder="swap">
-            <input type="text" name="for" id="for" placeholder="for">
-            <button type="submit" id="acceptExg">Submit</button>
-            <div class="downMenu" id="downMenu">
-                <ul class="listTokens">
-                   <li>Token
-                    <ul class="submenu">
-                        <li>TBNB</li>
-                        <li>ANTI</li>
-                    </ul>
-                   </li>
-                </ul>
+            <button type="submit" id="acceptExg" onclick="exchangeTokens()">Submit</button>
             </div>
         </div>
-    </div>
-    <div class="task">
-        <input type="radio" name="done" class="done-btn">
-        <p class="task-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <div class="todo-app">
+            <h2>To-do List</h2>
+            <div class="row">
+                <input type="text" id="award" placeholder="Write your award">
+                <input type="text" id="input-box" placeholder="Add your text">
+                <button onclick="addTask()" id="add">Add</button>
+            </div>
+             <ul id="list-container">
+                <!-- <li class="checked">Task1</li>
+                <li>Task3</li>
+                <li>Task4</li> -->
+            </ul>
+        </div>
     </div>
 </body>
 <script defer src="script.js"></script>

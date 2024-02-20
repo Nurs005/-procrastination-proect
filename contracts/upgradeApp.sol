@@ -6,19 +6,23 @@ import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
 import "./check.sol";
 
- contract Todoapp is Initializable, ERC20Upgradeable{
+ contract Todoapp2 is Initializable, ERC20Upgradeable{
     IERC20 public tbnb;
     address public owner;
     
     using Check for uint[];
     using Check for uint;
 
-
-    function initialize( address token) initializer public{
-        tbnb = IERC20(token);
-        owner = msg.sender;
-        __ERC20_init("Anti Procrastination", "ANTI");
+    modifier onlyOwner(){
+        require(msg.sender == owner, "You are not owner");
+        _;
     }
+
+    // function initialize( address token) initializer public{
+    //     tbnb = IERC20(token);
+    //     owner = msg.sender;
+    //     __ERC20_init("Anti Procrastination", "ANTI");
+    // }
 
     struct Task{
         uint [] id;
@@ -91,5 +95,9 @@ import "./check.sol";
         }else{
             return false;
         }
+    }
+
+    function setToken(address token) external onlyOwner{
+        tbnb = IERC20(token);
     }
 }

@@ -6,19 +6,23 @@ import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
 import "./check.sol";
 
- contract Todoapp is Initializable, ERC20Upgradeable{
+ contract Todoapp3 is Initializable, ERC20Upgradeable{
     IERC20 public tbnb;
     address public owner;
     
     using Check for uint[];
     using Check for uint;
 
-
-    function initialize( address token) initializer public{
-        tbnb = IERC20(token);
-        owner = msg.sender;
-        __ERC20_init("Anti Procrastination", "ANTI");
+    modifier onlyOwner(){
+        require(msg.sender == owner, "You are not owner");
+        _;
     }
+
+    // function initialize( address token) initializer public{
+    //     tbnb = IERC20(token);
+    //     owner = msg.sender;
+    //     __ERC20_init("Anti Procrastination", "ANTI");
+    // }
 
     struct Task{
         uint [] id;
@@ -58,7 +62,6 @@ import "./check.sol";
         require(balanceOf(msg.sender) >= award, "You doesn't have that much tokens");
         Task storage newTask = listTask[msg.sender];
         require(award <= balance[msg.sender] /2, "You can't set awart above than half your balance");
-        //добавить проверку ид
         id.checked(newTask.id);
         newTask.id.push(id); 
         newTask.award.push(award);
@@ -70,17 +73,17 @@ import "./check.sol";
     function awarded(uint id) public {
         Task storage newTask = listTask[msg.sender];
         require(!newTask.trueOrnot[id], "This task alredy done");
+        checkTask(id);
         _burn(msg.sender, newTask.award[id]);
         tbnb.transfer(msg.sender, newTask.award[id] -= feeForAward(newTask.award[id]));
         tbnb.transfer(owner, feeForAward(newTask.award[id]));
-        newTask.trueOrnot[id] = true;
         listTask[msg.sender] = newTask;
     }
 
     function feeForAward(uint amount) public pure returns(uint){
         return amount / 10000;
     }
-    function checkTask (uint id) public returns(bool){
+    function checkTask (uint id) internal returns(bool){
         Task storage newTask = listTask[msg.sender];
         if(newTask.checkTime < block.timestamp){
             newTask.trueOrnot[id] = true;
@@ -91,5 +94,9 @@ import "./check.sol";
         }else{
             return false;
         }
+    }
+
+    function setToken(address token) external onlyOwner{
+        tbnb = IERC20(token);
     }
 }
